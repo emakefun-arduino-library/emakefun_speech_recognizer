@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Emakefun Speech Recognizer: emakefun::I2cDevice类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Emakefun Speech Recognizer<span id="projectnumber">&#160;2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>emakefun</b></li><li class="navelem"><a class="el" href="classemakefun_1_1_i2c_device.html">I2cDevice</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classemakefun_1_1_i2c_device-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">emakefun::I2cDevice类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:abdd3beccd9f0960add26498f1e70db72"><td class="memItemLeft" align="right" valign="top"><a id="abdd3beccd9f0960add26498f1e70db72" name="abdd3beccd9f0960add26498f1e70db72"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>I2cDevice</b> (const uint8_t i2c_address)</td></tr>
+<tr class="separator:abdd3beccd9f0960add26498f1e70db72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9b4395d16cdd7decafb97ffe79fdb3"><td class="memItemLeft" align="right" valign="top"><a id="aeb9b4395d16cdd7decafb97ffe79fdb3" name="aeb9b4395d16cdd7decafb97ffe79fdb3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Initialize</b> ()</td></tr>
+<tr class="separator:aeb9b4395d16cdd7decafb97ffe79fdb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a321fd25e78e4fd11440a5be55068cb00"><td class="memItemLeft" align="right" valign="top"><a id="a321fd25e78e4fd11440a5be55068cb00" name="a321fd25e78e4fd11440a5be55068cb00"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>WriteByte</b> (const uint8_t address, const uint8_t data)</td></tr>
+<tr class="separator:a321fd25e78e4fd11440a5be55068cb00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77101010d61258f6da8afad5f51e0365"><td class="memItemLeft" align="right" valign="top"><a id="a77101010d61258f6da8afad5f51e0365" name="a77101010d61258f6da8afad5f51e0365"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>WriteBytes</b> (const uint8_t address, const void *const data, const size_t length)</td></tr>
+<tr class="separator:a77101010d61258f6da8afad5f51e0365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade2a84bce132b865dab8c2e19f4acb81"><td class="memItemLeft" align="right" valign="top"><a id="ade2a84bce132b865dab8c2e19f4acb81" name="ade2a84bce132b865dab8c2e19f4acb81"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ReadByte</b> (const uint8_t address)</td></tr>
+<tr class="separator:ade2a84bce132b865dab8c2e19f4acb81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b06389184fc0926961d60185f3a7fde"><td class="memItemLeft" align="right" valign="top"><a id="a4b06389184fc0926961d60185f3a7fde" name="a4b06389184fc0926961d60185f3a7fde"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ReadBytes</b> (const uint8_t address, void *const buffer, const size_t length)</td></tr>
+<tr class="separator:a4b06389184fc0926961d60185f3a7fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/utility/<a class="el" href="i2c__device_8h_source.html">i2c_device.h</a></li>
+<li>src/utility/i2c_device.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

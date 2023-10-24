@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readevent_0',['ReadEvent',['../class_speech_recognizer.html#a6182e9704116584e15287329147b22a6',1,'SpeechRecognizer']]],
-  ['readresult_1',['ReadResult',['../class_speech_recognizer.html#a7c9b577f042603122c1248c8a2255915',1,'SpeechRecognizer']]]
+  ['i2cdevice_0',['I2cDevice',['../classemakefun_1_1_i2c_device.html',1,'emakefun']]],
+  ['initialize_1',['Initialize',['../classemakefun_1_1_speech_recognizer.html#ac96384f63466dd584f733682901eb74f',1,'emakefun::SpeechRecognizer']]]
 ];

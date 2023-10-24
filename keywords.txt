@@ -1,34 +1,9 @@
-#######################################
-# Classes, datatypes (KEYWORD1)
-#######################################
+# Syntax Coloring Map For ExampleLibrary
 
-SpeechRecognizer	KEYWORD1
+# Datatypes (KEYWORD1)
 
-#######################################
 # Methods and Functions (KEYWORD2)
-#######################################
 
-Setup	KEYWORD2
-SetActivationMode	KEYWORD2
-SetTimeout	KEYWORD2
-AddIdentification	KEYWORD2
-GetResult	KEYWORD2
-IsActivated	KEYWORD2
+# Instances (KEYWORD3)
 
-#######################################
 # Constants (LITERAL1)
-#######################################
-
-kDeviceI2cAddress	LITERAL1
-
-kTriggerAuto	LITERAL1
-kTriggerButton	LITERAL1
-kTriggerKeyword	LITERAL1
-
-kEventNone	LITERAL1
-kEventWaitForTrigger	LITERAL1
-kEventStartRecognizing	LITERAL1
-kEventRecognizeSuccess	LITERAL1
-kEventRecognizeTimeout	LITERAL1
-kEventTriggeredByButton	LITERAL1
-kEventTriggeredByKeyword	LITERAL1

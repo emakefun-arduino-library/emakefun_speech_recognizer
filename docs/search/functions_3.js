@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7espeechrecognizer_0',['~SpeechRecognizer',['../class_speech_recognizer.html#a27f826b27426e09ee4d0eeefe85337db',1,'SpeechRecognizer']]]
+  ['recognize_0',['Recognize',['../classemakefun_1_1_speech_recognizer.html#a5b9ff136e21abd1ed17ad962ebe37727',1,'emakefun::SpeechRecognizer']]]
 ];

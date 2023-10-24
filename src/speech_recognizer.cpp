@@ -5,24 +5,21 @@
 
 #define VERSION (1)
 
+namespace emakefun {
 namespace {
-
-enum CommandFlag : uint8_t {
-  kCanSendCommand = 0,
-  kCommandSendCompleted = 1,
-};
-
 enum DataAddress : uint8_t {
   kDataAddressVersion = 0x00,
-  kDataAddressCommandFlag = 0x01,
-  kDataAddressCommand = 0x03,
-  kDataAddressIdentificationIndex = 0x04,
-  kDataAddressActivationMode = 0x04,
-  kDataAddressTimeout = 0x04,
-  kDataAddressIdentificationData = 0x05,
-  kDataAddressIdentificationLength = 0x37,
-  kDataAddressEvent = 0x38,
-  kDataAddressResult = 0x39,
+  kDataAddressBusy = 0x01,
+  kDataAddressReset = 0x02,
+  kDataAddressRecognitionMode = 0x03,
+  kDataAddressResult = 0x04,
+  kDataAddressEvent = 0x06,
+  kDataAddressTimeout = 0x08,
+  kDataAddressKeywordIndex = 0x0C,
+  kDataAddressKeywordData = 0x0D,
+  kDataAddressKeywordLength = 0x3F,
+  kDataAddressAddKeyword = 0x40,
+  kDataAddressRecognize = 0x41,
 };
 
 enum Command : uint8_t {
@@ -34,66 +31,51 @@ enum Command : uint8_t {
 };
 }  // namespace
 
-SpeechRecognizer::SpeechRecognizer(const uint8_t device_i2c_address) : I2cDeviceController(device_i2c_address) {
+SpeechRecognizer::SpeechRecognizer(const uint8_t device_i2c_address) : i2c_device_(device_i2c_address) {
 }
 
-bool SpeechRecognizer::Setup() {
-  I2cDeviceController::Setup();
-  if (VERSION != Read(kDataAddressVersion)) {
-    return false;
-  }
-
-  while (!CanSendCommand()) {
-    yield();
-  }
-
-  return Write(kDataAddressCommand, kReset) == 0 && Write(kDataAddressCommandFlag, kCommandSendCompleted) == 0;
+bool SpeechRecognizer::Initialize() {
+  i2c_device_.Initialize();
+  WaitUntilIdle();
+  i2c_device_.WriteByte(kDataAddressReset, 1);
 }
 
-void SpeechRecognizer::SetTrigger(const Trigger trigger) {
-  while (!CanSendCommand()) {
-    yield();
-  }
-
-  Write(kDataAddressCommand, {static_cast<uint8_t>(kSetTrigger), static_cast<uint8_t>(trigger)});
-  Write(kDataAddressCommandFlag, kCommandSendCompleted);
+void SpeechRecognizer::SetRecognitionMode(const RecognitionMode recognition_mode) {
+  WaitUntilIdle();
+  i2c_device_.WriteByte(kDataAddressRecognitionMode, recognition_mode);
 }
 
 void SpeechRecognizer::SetTimeout(const uint32_t timeout_ms) {
-  while (!CanSendCommand()) {
+  WaitUntilIdle();
+  i2c_device_.WriteBytes(kDataAddressTimeout, &timeout_ms, sizeof(timeout_ms));
+}
+
+void SpeechRecognizer::AddKeyword(const uint8_t index, const String& identification) {
+  WaitUntilIdle();
+  i2c_device_.WriteByte(kDataAddressKeywordIndex, index);
+  i2c_device_.WriteBytes(kDataAddressKeywordData, identification.c_str(), min(255, identification.length()));
+  i2c_device_.WriteByte(kDataAddressKeywordLength, min(255, identification.length()));
+  i2c_device_.WriteByte(kDataAddressAddKeyword, 1);
+}
+
+void SpeechRecognizer::Recognize() {
+  WaitUntilIdle();
+  i2c_device_.WriteByte(kDataAddressRecognize, 1);
+}
+
+int16_t SpeechRecognizer::GetResult() {
+  uint8_t data[2] = {0};
+  i2c_device_.ReadBytes(kDataAddressResult, data, sizeof(data));
+  return ((int16_t)data[1] << 8) | data[0];
+}
+
+SpeechRecognizer::Event SpeechRecognizer::GetEvent() {
+  return static_cast<SpeechRecognizer::Event>(i2c_device_.ReadByte(kDataAddressEvent));
+}
+
+void SpeechRecognizer::WaitUntilIdle() {
+  while (i2c_device_.ReadByte(kDataAddressBusy) == 1) {
     yield();
   }
-
-  Write(kDataAddressCommand, kSetTimeout);
-  Write(kDataAddressTimeout, reinterpret_cast<const uint8_t*>(&timeout_ms), sizeof(timeout_ms));
-  Write(kDataAddressCommandFlag, kCommandSendCompleted);
 }
-
-void SpeechRecognizer::AddIdentification(const uint8_t index, const String& identification) {
-  while (!CanSendCommand()) {
-    yield();
-  }
-
-  Write(kDataAddressCommand, {static_cast<uint8_t>(kAddIdentification), index});
-  Write(kDataAddressIdentificationData,
-        reinterpret_cast<const uint8_t*>(identification.c_str()),
-        min(255, identification.length()));
-  Write(kDataAddressIdentificationLength, min(255, identification.length()));
-  Write(kDataAddressCommandFlag, kCommandSendCompleted);
-}
-
-uint8_t SpeechRecognizer::ReadResult() {
-  return Read(kDataAddressResult);
-}
-
-SpeechRecognizer::Event SpeechRecognizer::ReadEvent() {
-  return static_cast<SpeechRecognizer::Event>(Read(kDataAddressEvent, kEventNone));
-}
-
-bool SpeechRecognizer::CanSendCommand() {
-  return Read(kDataAddressCommandFlag, kCommandSendCompleted) == kCanSendCommand;
-}
-
-void SpeechRecognizer::CommandSendCompleted() {
-  Write(kDataAddressCommandFlag, kCommandSendCompleted);
-}
+}  // namespace emakefun
