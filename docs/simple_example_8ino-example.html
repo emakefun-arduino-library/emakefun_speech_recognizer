@@ -80,24 +80,24 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &quot;speech_recognizer.h&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a> speech_recognizer(0x30);</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a> g_speech_recognizer(0x30);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
 <div class="line">  Serial.begin(115200);</div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;setup&quot;</span>);</div>
-<div class="line">  speech_recognizer.<a id="a1" name="a1"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#ac96384f63466dd584f733682901eb74f">Initialize</a>();</div>
-<div class="line">  speech_recognizer.<a id="a2" name="a2"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(0, F(<span class="stringliteral">&quot;xiao yi xiao yi&quot;</span>));</div>
-<div class="line">  speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(1, F(<span class="stringliteral">&quot;bei jing&quot;</span>));</div>
-<div class="line">  speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(2, F(<span class="stringliteral">&quot;shang hai&quot;</span>));</div>
-<div class="line">  speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(3, F(<span class="stringliteral">&quot;cheng du&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.<a id="a1" name="a1"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#ac96384f63466dd584f733682901eb74f">Initialize</a>();</div>
+<div class="line">  g_speech_recognizer.<a id="a2" name="a2"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(0, F(<span class="stringliteral">&quot;xiao yi xiao yi&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(1, F(<span class="stringliteral">&quot;bei jing&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(2, F(<span class="stringliteral">&quot;shang hai&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a>(3, F(<span class="stringliteral">&quot;cheng du&quot;</span>));</div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;setup done&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  speech_recognizer.<a id="a3" name="a3"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a5b9ff136e21abd1ed17ad962ebe37727">Recognize</a>();</div>
-<div class="line">  <span class="keywordflow">if</span> (speech_recognizer.<a id="a4" name="a4"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aaf088fb5a2228860e37c34614edf2cef">GetResult</a>() &gt;= 0) {</div>
+<div class="line">  g_speech_recognizer.<a id="a3" name="a3"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a5b9ff136e21abd1ed17ad962ebe37727">Recognize</a>();</div>
+<div class="line">  <span class="keywordflow">if</span> (g_speech_recognizer.<a id="a4" name="a4"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aaf088fb5a2228860e37c34614edf2cef">GetResult</a>() &gt;= 0) {</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;result: &quot;</span>);</div>
-<div class="line">    Serial.println(speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aaf088fb5a2228860e37c34614edf2cef">GetResult</a>());</div>
+<div class="line">    Serial.println(g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aaf088fb5a2228860e37c34614edf2cef">GetResult</a>());</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a></div><div class="ttdoc">语音识别模块控制类</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:13</div></div>

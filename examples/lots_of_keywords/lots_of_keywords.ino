@@ -1,5 +1,5 @@
 /**
- * @example lots_of_keyword.ino
+ * @example lots_of_keywords.ino
  */
 
 #include <Arduino.h>
