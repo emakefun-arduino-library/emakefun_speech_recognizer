@@ -4,7 +4,6 @@
 
 #include <Arduino.h>
 #include <Wire.h>
-
 #include "speech_recognizer.h"
 
 emakefun::SpeechRecognizer g_speech_recognizer(0x30);

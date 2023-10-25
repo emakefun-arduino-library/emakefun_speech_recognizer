@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Wire.h>
 #include <inttypes.h>
 #include <stddef.h>
 
@@ -8,7 +9,7 @@ class I2cDevice {
  public:
   explicit I2cDevice(const uint8_t i2c_address);
 
-  bool Initialize();
+  bool Initialize(TwoWire* const wire = &Wire);
 
   size_t WriteByte(const uint8_t address, const uint8_t data);
 
@@ -19,6 +20,7 @@ class I2cDevice {
   size_t ReadBytes(const uint8_t address, void* const buffer, const size_t length);
 
  private:
+  TwoWire* wire_ = nullptr;
   const uint8_t i2c_address_;
 };
 }  // namespace emakefun

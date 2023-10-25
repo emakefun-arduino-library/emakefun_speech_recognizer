@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>语音识别模块控制类  
+<p>语音识别模块类  
  <a href="classemakefun_1_1_speech_recognizer.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="speech__recognizer_8h_source.html">speech_recognizer.h</a>&gt;</code></p>
@@ -115,27 +115,26 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:ad32215cb23f06a7332cd54508fc4ab81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ad32215cb23f06a7332cd54508fc4ab81">SpeechRecognizer</a> (const uint8_t device_i2c_address=<a class="el" href="classemakefun_1_1_speech_recognizer.html#ab7a04971ed21181c9c798313122160cf">kDeviceI2cAddress</a>)</td></tr>
 <tr class="memdesc:ad32215cb23f06a7332cd54508fc4ab81"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
 <tr class="separator:ad32215cb23f06a7332cd54508fc4ab81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac96384f63466dd584f733682901eb74f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ac96384f63466dd584f733682901eb74f">Initialize</a> ()</td></tr>
-<tr class="memdesc:ac96384f63466dd584f733682901eb74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化函数  <br /></td></tr>
-<tr class="separator:ac96384f63466dd584f733682901eb74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95bfa6b2b55e1771a1d50098e5a8b3fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a95bfa6b2b55e1771a1d50098e5a8b3fa">Initialize</a> (TwoWire *const wire=&amp;Wire)</td></tr>
+<tr class="memdesc:a95bfa6b2b55e1771a1d50098e5a8b3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化函数  <br /></td></tr>
+<tr class="separator:a95bfa6b2b55e1771a1d50098e5a8b3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade26e52c0ace43fda17f05d7b8440361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ade26e52c0ace43fda17f05d7b8440361">SetRecognitionMode</a> (const <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887">RecognitionMode</a> recognition_mode)</td></tr>
 <tr class="memdesc:ade26e52c0ace43fda17f05d7b8440361"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置识别模式  <br /></td></tr>
 <tr class="separator:ade26e52c0ace43fda17f05d7b8440361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfa57a3837637c9be378190e1d8734bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#adfa57a3837637c9be378190e1d8734bd">SetTimeout</a> (const uint32_t timeout_ms)</td></tr>
-<tr class="memdesc:adfa57a3837637c9be378190e1d8734bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置识别超时时间, 对自动触发( <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">SpeechRecognizer::kRecognitionAuto</a> )无效  <br /></td></tr>
+<tr class="memdesc:adfa57a3837637c9be378190e1d8734bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置识别超时时间, 对自动触发模式( <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">kRecognitionAuto</a> )无效  <br /></td></tr>
 <tr class="separator:adfa57a3837637c9be378190e1d8734bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a988bc7601901eae994623da95a4651d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a> (const uint8_t index, const String &amp;identification)</td></tr>
-<tr class="memdesc:a988bc7601901eae994623da95a4651d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加语音识别关键词  <br /></td></tr>
-<tr class="separator:a988bc7601901eae994623da95a4651d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b9ff136e21abd1ed17ad962ebe37727"><td class="memItemLeft" align="right" valign="top"><a id="a5b9ff136e21abd1ed17ad962ebe37727" name="a5b9ff136e21abd1ed17ad962ebe37727"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Recognize</b> ()</td></tr>
-<tr class="memdesc:a5b9ff136e21abd1ed17ad962ebe37727"><td class="mdescLeft">&#160;</td><td class="mdescRight">持续进行语音识别，循环调用该函数以推进语音识别模块的工作。 <br /></td></tr>
+<tr class="memitem:aa88e668aa2404b870eb388af199b961f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a> (const uint8_t index, const String &amp;keyword)</td></tr>
+<tr class="memdesc:aa88e668aa2404b870eb388af199b961f"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加语音识别关键词  <br /></td></tr>
+<tr class="separator:aa88e668aa2404b870eb388af199b961f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b9ff136e21abd1ed17ad962ebe37727"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b9ff136e21abd1ed17ad962ebe37727">Recognize</a> ()</td></tr>
+<tr class="memdesc:a5b9ff136e21abd1ed17ad962ebe37727"><td class="mdescLeft">&#160;</td><td class="mdescRight">进行语音识别  <br /></td></tr>
 <tr class="separator:a5b9ff136e21abd1ed17ad962ebe37727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf088fb5a2228860e37c34614edf2cef"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#aaf088fb5a2228860e37c34614edf2cef">GetResult</a> ()</td></tr>
 <tr class="memdesc:aaf088fb5a2228860e37c34614edf2cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取语音识别结果  <br /></td></tr>
 <tr class="separator:aaf088fb5a2228860e37c34614edf2cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cb06e53c0992b33a94f17d0afee6957"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a2cb06e53c0992b33a94f17d0afee6957">GetEvent</a> ()</td></tr>
-<tr class="memdesc:a2cb06e53c0992b33a94f17d0afee6957"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取事件  <br /></td></tr>
+<tr class="memdesc:a2cb06e53c0992b33a94f17d0afee6957"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前事件  <br /></td></tr>
 <tr class="separator:a2cb06e53c0992b33a94f17d0afee6957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
@@ -144,9 +143,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Recognize</b> ()</td>
 static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>kDeviceI2cAddress</b> = 0x30</td></tr>
 <tr class="memdesc:ab7a04971ed21181c9c798313122160cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">语音识别模块默认I2C地址 <br /></td></tr>
 <tr class="separator:ab7a04971ed21181c9c798313122160cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673e593f6126e66ad55168f450cdcaef"><td class="memItemLeft" align="right" valign="top"><a id="a673e593f6126e66ad55168f450cdcaef" name="a673e593f6126e66ad55168f450cdcaef"></a>
+static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxKeywordDataBytes</b> = 50</td></tr>
+<tr class="memdesc:a673e593f6126e66ad55168f450cdcaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">每条关键词最大字符数 <br /></td></tr>
+<tr class="separator:a673e593f6126e66ad55168f450cdcaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>语音识别模块控制类 </p>
+<div class="textblock"><p>语音识别模块类 </p>
 <dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#_a0">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#_a0">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#_a0">keyword_trigger_mode.ino</a>, <a class="el" href="lots_of_keywords_8ino-example.html#_a0">lots_of_keywords.ino</a> , 以及 <a class="el" href="simple_example_8ino-example.html#_a0">simple_example.ino</a>.</dd>
 </dl>
 </div><h2 class="groupheader">成员枚举类型说明</h2>
@@ -202,7 +205,7 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 </td></tr>
 <tr><td class="fieldname"><a id="a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2" name="a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2"></a>kKeywordTrigger&#160;</td><td class="fielddoc"><p>关键词触发识别模式 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210" name="a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210"></a>kKeywordOrButtonTrigger&#160;</td><td class="fielddoc"><p>按键或关键词触发模式 </p>
+<tr><td class="fieldname"><a id="a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210" name="a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210"></a>kKeywordOrButtonTrigger&#160;</td><td class="fielddoc"><p>按键或关键词触发识别模式 </p>
 </td></tr>
 </table>
 
@@ -236,8 +239,8 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a988bc7601901eae994623da95a4651d5" name="a988bc7601901eae994623da95a4651d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a988bc7601901eae994623da95a4651d5">&#9670;&#160;</a></span>AddKeyword()</h2>
+<a id="aa88e668aa2404b870eb388af199b961f" name="aa88e668aa2404b870eb388af199b961f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa88e668aa2404b870eb388af199b961f">&#9670;&#160;</a></span>AddKeyword()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +255,7 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>identification</em>&#160;</td>
+          <td class="paramname"><em>keyword</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -265,8 +268,8 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 <p>添加语音识别关键词 </p>
 <p>最多可以添加50个词，每个词最大长度为50个字节 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>索引，范围 0 ~ 255，多个词可以共用一个索引，当在关键字触发( <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2">SpeechRecognizer::kKeywordTrigger</a> )模式下，索引0会被当做关键词 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">identification</td><td>索引词，String类型，最大长度为50个字节 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>索引，范围 0 ~ 255，多个词可以共用一个索引，当在 <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2">关键字触发识别模式</a> 或 <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210">按键或关键词触发识别模式</a> 下，索引 0 会被当做关键词 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyword</td><td>关键词，String类型，最大长度为50 ( 参考定义: <a class="el" href="classemakefun_1_1_speech_recognizer.html#a673e593f6126e66ad55168f450cdcaef">kMaxKeywordDataBytes</a> ) 个字节 </td></tr>
   </table>
   </dd>
 </dl>
@@ -290,7 +293,7 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
       </table>
 </div><div class="memdoc">
 
-<p>读取事件 </p>
+<p>获取当前事件 </p>
 <dl class="section return"><dt>返回</dt><dd>事件类型，参考枚举: <a class="el" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715">Event</a> </dd></dl>
 <dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a14">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a14">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a14">keyword_trigger_mode.ino</a> , 以及 <a class="el" href="lots_of_keywords_8ino-example.html#a13">lots_of_keywords.ino</a>.</dd>
 </dl>
@@ -317,7 +320,7 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">&lt;0</td><td>未识别到结果 </td></tr>
-    <tr><td class="paramname">&gt;=0</td><td>识别到关键词的索引值，对应 <a class="el" href="classemakefun_1_1_speech_recognizer.html#a988bc7601901eae994623da95a4651d5">AddKeyword</a> 时设置的关键词索引 </td></tr>
+    <tr><td class="paramname">&gt;=0</td><td>识别到关键词的索引值，对应 <a class="el" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a> 时设置的关键词索引 </td></tr>
   </table>
   </dd>
 </dl>
@@ -326,8 +329,8 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 
 </div>
 </div>
-<a id="ac96384f63466dd584f733682901eb74f" name="ac96384f63466dd584f733682901eb74f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac96384f63466dd584f733682901eb74f">&#9670;&#160;</a></span>Initialize()</h2>
+<a id="a95bfa6b2b55e1771a1d50098e5a8b3fa" name="a95bfa6b2b55e1771a1d50098e5a8b3fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95bfa6b2b55e1771a1d50098e5a8b3fa">&#9670;&#160;</a></span>Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,14 +338,21 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
         <tr>
           <td class="memname">bool emakefun::SpeechRecognizer::Initialize </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">TwoWire *const&#160;</td>
+          <td class="paramname"><em>wire</em> = <code>&amp;Wire</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>初始化函数 </p>
-<dl class="section return"><dt>返回</dt><dd>初始化结果， </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">wire</td><td>Wire对象，用于I2C通讯，可选，默认使用Arduino标准的Wire对象进行I2C通讯 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>初始化结果 </dd></dl>
 <dl class="retval"><dt>返回值</dt><dd>
   <table class="retval">
     <tr><td class="paramname">true</td><td>成功 </td></tr>
@@ -351,6 +361,28 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
   </dd>
 </dl>
 <dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a7">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a7">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a7">keyword_trigger_mode.ino</a>, <a class="el" href="lots_of_keywords_8ino-example.html#a7">lots_of_keywords.ino</a> , 以及 <a class="el" href="simple_example_8ino-example.html#a1">simple_example.ino</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b9ff136e21abd1ed17ad962ebe37727" name="a5b9ff136e21abd1ed17ad962ebe37727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b9ff136e21abd1ed17ad962ebe37727">&#9670;&#160;</a></span>Recognize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void emakefun::SpeechRecognizer::Recognize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>进行语音识别 </p>
+<p>在loop函数中<b>循环调用</b>该函数以推进语音识别模块的工作， 调用该函数后可以通过( <a class="el" href="classemakefun_1_1_speech_recognizer.html#aaf088fb5a2228860e37c34614edf2cef">GetResult</a> )获取识别结果，可以通过( <a class="el" href="classemakefun_1_1_speech_recognizer.html#a2cb06e53c0992b33a94f17d0afee6957">GetEvent</a> )获取事件 </p>
+<dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a12">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a12">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a12">keyword_trigger_mode.ino</a>, <a class="el" href="lots_of_keywords_8ino-example.html#a11">lots_of_keywords.ino</a> , 以及 <a class="el" href="simple_example_8ino-example.html#a3">simple_example.ino</a>.</dd>
 </dl>
 
 </div>
@@ -399,7 +431,7 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
       </table>
 </div><div class="memdoc">
 
-<p>设置识别超时时间, 对自动触发( <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">SpeechRecognizer::kRecognitionAuto</a> )无效 </p>
+<p>设置识别超时时间, 对自动触发模式( <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">kRecognitionAuto</a> )无效 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">timeout_ms</td><td>超时时间，单位毫秒 </td></tr>

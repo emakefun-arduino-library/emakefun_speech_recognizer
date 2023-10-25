@@ -11,5 +11,6 @@ var searchData=
   ['keventstartwaitingfortrigger_8',['kEventStartWaitingForTrigger',['../classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8',1,'emakefun::SpeechRecognizer']]],
   ['kkeywordorbuttontrigger_9',['kKeywordOrButtonTrigger',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210',1,'emakefun::SpeechRecognizer']]],
   ['kkeywordtrigger_10',['kKeywordTrigger',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2',1,'emakefun::SpeechRecognizer']]],
-  ['krecognitionauto_11',['kRecognitionAuto',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840',1,'emakefun::SpeechRecognizer']]]
+  ['kmaxkeyworddatabytes_11',['kMaxKeywordDataBytes',['../classemakefun_1_1_speech_recognizer.html#a673e593f6126e66ad55168f450cdcaef',1,'emakefun::SpeechRecognizer']]],
+  ['krecognitionauto_12',['kRecognitionAuto',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840',1,'emakefun::SpeechRecognizer']]]
 ];

@@ -29,15 +29,24 @@ enum Command : uint8_t {
   kSetTrigger,
   kSetTimeout,
 };
+
+template <typename T>
+inline T Min(const T x, const T y) {
+  return x < y ? x : y;
+}
+
 }  // namespace
 
 SpeechRecognizer::SpeechRecognizer(const uint8_t device_i2c_address) : i2c_device_(device_i2c_address) {
 }
 
-bool SpeechRecognizer::Initialize() {
-  i2c_device_.Initialize();
+bool SpeechRecognizer::Initialize(TwoWire* const wire) {
+  if (!i2c_device_.Initialize(wire)) {
+    return false;
+  }
   WaitUntilIdle();
   i2c_device_.WriteByte(kDataAddressReset, 1);
+  return true;
 }
 
 void SpeechRecognizer::SetRecognitionMode(const RecognitionMode recognition_mode) {
@@ -50,11 +59,11 @@ void SpeechRecognizer::SetTimeout(const uint32_t timeout_ms) {
   i2c_device_.WriteBytes(kDataAddressTimeout, &timeout_ms, sizeof(timeout_ms));
 }
 
-void SpeechRecognizer::AddKeyword(const uint8_t index, const String& identification) {
+void SpeechRecognizer::AddKeyword(const uint8_t index, const String& keyword) {
   WaitUntilIdle();
   i2c_device_.WriteByte(kDataAddressKeywordIndex, index);
-  i2c_device_.WriteBytes(kDataAddressKeywordData, identification.c_str(), min(255, identification.length()));
-  i2c_device_.WriteByte(kDataAddressKeywordLength, min(255, identification.length()));
+  i2c_device_.WriteBytes(kDataAddressKeywordData, keyword.c_str(), Min<uint8_t>(kMaxKeywordDataBytes, keyword.length()));
+  i2c_device_.WriteByte(kDataAddressKeywordLength, Min<uint8_t>(kMaxKeywordDataBytes, keyword.length()));
   i2c_device_.WriteByte(kDataAddressAddKeyword, 1);
 }
 
@@ -65,8 +74,11 @@ void SpeechRecognizer::Recognize() {
 
 int16_t SpeechRecognizer::GetResult() {
   uint8_t data[2] = {0};
-  i2c_device_.ReadBytes(kDataAddressResult, data, sizeof(data));
-  return ((int16_t)data[1] << 8) | data[0];
+  if (sizeof(data) == i2c_device_.ReadBytes(kDataAddressResult, data, sizeof(data))) {
+    return ((int16_t)data[1] << 8) | data[0];
+  } else {
+    return -1;
+  }
 }
 
 SpeechRecognizer::Event SpeechRecognizer::GetEvent() {
