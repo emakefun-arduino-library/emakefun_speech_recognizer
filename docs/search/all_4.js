@@ -1,7 +1,7 @@
 var searchData=
 [
   ['kbuttontrigger_0',['kButtonTrigger',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a23d9b014ee92b349babd8277c34e1344',1,'emakefun::SpeechRecognizer']]],
-  ['kdevicei2caddress_1',['kDeviceI2cAddress',['../classemakefun_1_1_speech_recognizer.html#ab7a04971ed21181c9c798313122160cf',1,'emakefun::SpeechRecognizer']]],
+  ['kdefaulti2caddress_1',['kDefaultI2cAddress',['../classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc',1,'emakefun::SpeechRecognizer']]],
   ['keventbuttontriggered_2',['kEventButtonTriggered',['../classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715adf2b50579638b452cba87089f94b6a08',1,'emakefun::SpeechRecognizer']]],
   ['keventkeywordtriggered_3',['kEventKeywordTriggered',['../classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715afca0c5f6be52209943cdff523b1b3257',1,'emakefun::SpeechRecognizer']]],
   ['keventnone_4',['kEventNone',['../classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a010859cc7dd3f6bc5cd861cc3f624146',1,'emakefun::SpeechRecognizer']]],

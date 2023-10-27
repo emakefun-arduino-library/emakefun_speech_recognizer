@@ -7,7 +7,7 @@
 
 #include "speech_recognizer.h"
 
-emakefun::SpeechRecognizer g_speech_recognizer(0x30);
+emakefun::SpeechRecognizer g_speech_recognizer(emakefun::SpeechRecognizer::kDefaultI2cAddress);
 
 String EventToString(emakefun::SpeechRecognizer::Event event) {
   switch (event) {
@@ -42,10 +42,10 @@ void setup() {
 }
 
 void loop() {
-  g_speech_recognizer.Recognize();
-  if (g_speech_recognizer.GetResult() >= 0) {
+  const auto result = g_speech_recognizer.Recognize();
+  if (result >= 0) {
     Serial.print("result: ");
-    Serial.println(g_speech_recognizer.GetResult());
+    Serial.println(result);
   }
 
   if (g_speech_recognizer.GetEvent() != emakefun::SpeechRecognizer::kEventNone) {

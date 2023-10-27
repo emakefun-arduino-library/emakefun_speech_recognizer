@@ -15,7 +15,7 @@ class SpeechRecognizer {
   /**
    * @brief 语音识别模块默认I2C地址
    */
-  static constexpr uint8_t kDeviceI2cAddress = 0x30;
+  static constexpr uint8_t kDefaultI2cAddress = 0x30;
 
   /**
    * @brief 每条关键词最大字符数
@@ -50,7 +50,7 @@ class SpeechRecognizer {
    * @brief 构造函数
    * @param device_i2c_address 语音识别模块I2C地址，默认为0x30
    */
-  SpeechRecognizer(const uint8_t device_i2c_address = kDeviceI2cAddress);
+  SpeechRecognizer(const uint8_t device_i2c_address = kDefaultI2cAddress);
 
   /**
    * @brief 初始化函数
@@ -85,18 +85,12 @@ class SpeechRecognizer {
   /**
    * @brief 进行语音识别
    * @details 在loop函数中<b>循环调用</b>该函数以推进语音识别模块的工作，
-   * 调用该函数后可以通过( @ref GetResult )获取识别结果，可以通过( @ref GetEvent )获取事件
-   *
-   */
-  void Recognize();
-
-  /**
-   * @brief 获取语音识别结果
+   * 调用该函数后可以获取识别结果，可以通过( @ref GetEvent )获取事件
    * @return 关键词的索引值
    * @retval <0 未识别到结果
    * @retval >=0 识别到关键词的索引值，对应 @ref AddKeyword 时设置的关键词索引
    */
-  int16_t GetResult();
+  int16_t Recognize();
 
   /**
    * @brief 获取当前事件

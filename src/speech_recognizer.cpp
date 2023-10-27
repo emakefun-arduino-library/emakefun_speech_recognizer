@@ -67,12 +67,9 @@ void SpeechRecognizer::AddKeyword(const uint8_t index, const String& keyword) {
   i2c_device_.WriteByte(kDataAddressAddKeyword, 1);
 }
 
-void SpeechRecognizer::Recognize() {
+int16_t SpeechRecognizer::Recognize() {
   WaitUntilIdle();
   i2c_device_.WriteByte(kDataAddressRecognize, 1);
-}
-
-int16_t SpeechRecognizer::GetResult() {
   uint8_t data[2] = {0};
   if (sizeof(data) == i2c_device_.ReadBytes(kDataAddressResult, data, sizeof(data))) {
     return ((int16_t)data[1] << 8) | data[0];

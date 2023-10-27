@@ -1,6 +1,6 @@
 # Syntax Coloring Map For ExampleLibrary
 
-# Datatypes (KEYWORD1)
+# Data Types (KEYWORD1)
 
 # Methods and Functions (KEYWORD2)
 
