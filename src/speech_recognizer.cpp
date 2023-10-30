@@ -70,12 +70,7 @@ void SpeechRecognizer::AddKeyword(const uint8_t index, const String& keyword) {
 int16_t SpeechRecognizer::Recognize() {
   WaitUntilIdle();
   i2c_device_.WriteByte(kDataAddressRecognize, 1);
-  uint8_t data[2] = {0};
-  if (sizeof(data) == i2c_device_.ReadBytes(kDataAddressResult, data, sizeof(data))) {
-    return ((int16_t)data[1] << 8) | data[0];
-  } else {
-    return -1;
-  }
+  return i2c_device_.ReadInt16LE(kDataAddressResult);
 }
 
 SpeechRecognizer::Event SpeechRecognizer::GetEvent() {
@@ -83,7 +78,7 @@ SpeechRecognizer::Event SpeechRecognizer::GetEvent() {
 }
 
 void SpeechRecognizer::WaitUntilIdle() {
-  while (i2c_device_.ReadByte(kDataAddressBusy) == 1) {
+  while (i2c_device_.Probe() && i2c_device_.ReadByte(kDataAddressBusy) == 1) {
     yield();
   }
 }

@@ -3,7 +3,7 @@
 #include <WString.h>
 #include <inttypes.h>
 
-#include "utility/i2c_device.h"
+#include "i2c_device.h"
 
 namespace emakefun {
 
