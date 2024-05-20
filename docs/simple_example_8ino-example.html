@@ -79,32 +79,41 @@ $(function() {
 <div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &quot;speech_recognizer.h&quot;</span></div>
-<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
 <div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a> g_speech_recognizer(<a id="a1" name="a1"></a><a class="code hl_variable" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">emakefun::SpeechRecognizer::kDefaultI2cAddress</a>);</div>
+<div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
 <div class="line">  Serial.begin(115200);</div>
-<div class="line">  Serial.println(<span class="stringliteral">&quot;setup&quot;</span>);</div>
-<div class="line">  g_speech_recognizer.<a id="a2" name="a2"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a95bfa6b2b55e1771a1d50098e5a8b3fa">Initialize</a>();</div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;setup&quot;</span>));</div>
+<div class="line">  Wire.begin();</div>
+<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> ret = g_speech_recognizer.<a id="a2" name="a2"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a4a3a234ad04f4bda6fcfb8e8f5cd5585">Initialize</a>(&amp;Wire);</div>
+<div class="line">  <span class="keywordflow">if</span> (0 == ret) {</div>
+<div class="line">    Serial.println(F(<span class="stringliteral">&quot;speech recognizer initialization was successful&quot;</span>));</div>
+<div class="line">  } <span class="keywordflow">else</span> {</div>
+<div class="line">    Serial.println(String(F(<span class="stringliteral">&quot;speech recognizer initialization failed: &quot;</span>)) + ret);</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
+<div class="line">      ;</div>
+<div class="line">  }</div>
 <div class="line">  g_speech_recognizer.<a id="a3" name="a3"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(0, F(<span class="stringliteral">&quot;xiao yi xiao yi&quot;</span>));</div>
 <div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(1, F(<span class="stringliteral">&quot;bei jing&quot;</span>));</div>
 <div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(2, F(<span class="stringliteral">&quot;shang hai&quot;</span>));</div>
 <div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(3, F(<span class="stringliteral">&quot;cheng du&quot;</span>));</div>
-<div class="line">  Serial.println(<span class="stringliteral">&quot;setup done&quot;</span>);</div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;setup was successful&quot;</span>));</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> result = g_speech_recognizer.<a id="a4" name="a4"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a728e6abcd832e5b779fb1a801c3b3e08">Recognize</a>();</div>
 <div class="line">  <span class="keywordflow">if</span> (result &gt;= 0) {</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;result: &quot;</span>);</div>
+<div class="line">    Serial.print(F(<span class="stringliteral">&quot;result: &quot;</span>));</div>
 <div class="line">    Serial.println(result);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a></div><div class="ttdoc">语音识别模块类</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:13</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a29f8615dc251f4092b8a523a5c79d9cc"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">emakefun::SpeechRecognizer::kDefaultI2cAddress</a></div><div class="ttdeci">static constexpr uint8_t kDefaultI2cAddress</div><div class="ttdoc">语音识别模块默认I2C地址</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:18</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a728e6abcd832e5b779fb1a801c3b3e08"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a728e6abcd832e5b779fb1a801c3b3e08">emakefun::SpeechRecognizer::Recognize</a></div><div class="ttdeci">int16_t Recognize()</div><div class="ttdoc">进行语音识别</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:70</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a95bfa6b2b55e1771a1d50098e5a8b3fa"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a95bfa6b2b55e1771a1d50098e5a8b3fa">emakefun::SpeechRecognizer::Initialize</a></div><div class="ttdeci">bool Initialize(TwoWire *const wire=&amp;Wire)</div><div class="ttdoc">初始化函数</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:43</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_aa88e668aa2404b870eb388af199b961f"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">emakefun::SpeechRecognizer::AddKeyword</a></div><div class="ttdeci">void AddKeyword(const uint8_t index, const String &amp;keyword)</div><div class="ttdoc">添加语音识别关键词</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:62</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a></div><div class="ttdoc">语音识别模块类</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:12</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a29f8615dc251f4092b8a523a5c79d9cc"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">emakefun::SpeechRecognizer::kDefaultI2cAddress</a></div><div class="ttdeci">static constexpr uint8_t kDefaultI2cAddress</div><div class="ttdoc">语音识别模块默认I2C地址</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:17</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a4a3a234ad04f4bda6fcfb8e8f5cd5585"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a4a3a234ad04f4bda6fcfb8e8f5cd5585">emakefun::SpeechRecognizer::Initialize</a></div><div class="ttdeci">int32_t Initialize(TwoWire *const wire=&amp;Wire)</div><div class="ttdoc">初始化函数</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:44</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a728e6abcd832e5b779fb1a801c3b3e08"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a728e6abcd832e5b779fb1a801c3b3e08">emakefun::SpeechRecognizer::Recognize</a></div><div class="ttdeci">int16_t Recognize()</div><div class="ttdoc">进行语音识别</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:99</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_aa88e668aa2404b870eb388af199b961f"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">emakefun::SpeechRecognizer::AddKeyword</a></div><div class="ttdeci">void AddKeyword(const uint8_t index, const String &amp;keyword)</div><div class="ttdoc">添加语音识别关键词</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:76</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,9 +1,8 @@
 #pragma once
 
 #include <WString.h>
-#include <inttypes.h>
-
-#include "i2c_device.h"
+#include <Wire.h>
+#include <stdint.h>
 
 namespace emakefun {
 
@@ -48,9 +47,9 @@ class SpeechRecognizer {
 
   /**
    * @brief 构造函数
-   * @param device_i2c_address 语音识别模块I2C地址，默认为0x30
+   * @param i2c_address 语音识别模块I2C地址，默认为0x30
    */
-  SpeechRecognizer(const uint8_t device_i2c_address = kDefaultI2cAddress);
+  SpeechRecognizer(const uint8_t i2c_address = kDefaultI2cAddress);
 
   /**
    * @brief 初始化函数
@@ -59,7 +58,7 @@ class SpeechRecognizer {
    * @retval true 成功
    * @retval false 失败，如I2C无法与语音识别模块通讯
    */
-  bool Initialize(TwoWire* const wire = &Wire);
+  int32_t Initialize(TwoWire* const wire = &Wire);
 
   /**
    * @brief 设置识别模式
@@ -99,9 +98,9 @@ class SpeechRecognizer {
   Event GetEvent();
 
  private:
-  void WaitUntilIdle();
-
-  I2cDevice i2c_device_;
+  int32_t WaitUntilIdle();
+  TwoWire* wire_ = nullptr;
+  const uint8_t i2c_address_ = 0;
   SpeechRecognizer(const SpeechRecognizer&) = delete;
   SpeechRecognizer& operator=(const SpeechRecognizer&) = delete;
 };

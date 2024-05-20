@@ -30,8 +30,16 @@ String EventToString(emakefun::SpeechRecognizer::Event event) {
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("setup");
-  g_speech_recognizer.Initialize();
+  Serial.println(F("setup"));
+  Wire.begin();
+  const auto ret = g_speech_recognizer.Initialize(&Wire);
+  if (0 == ret) {
+    Serial.println(F("speech recognizer initialization was successful"));
+  } else {
+    Serial.println(String(F("speech recognizer initialization failed: ")) + ret);
+    while (true)
+      ;
+  }
   g_speech_recognizer.SetRecognitionMode(emakefun::SpeechRecognizer::kRecognitionAuto);
   g_speech_recognizer.AddKeyword(0, F("xiao yi xiao yi"));
   g_speech_recognizer.AddKeyword(1, F("bei jing"));
@@ -83,18 +91,18 @@ void setup() {
   g_speech_recognizer.AddKeyword(47, F("ji nan"));
   g_speech_recognizer.AddKeyword(48, F("jin hua"));
   g_speech_recognizer.AddKeyword(49, F("xi an"));
-  Serial.println("setup done");
+  Serial.println(F("setup was successful"));
 }
 
 void loop() {
   const auto result = g_speech_recognizer.Recognize();
   if (result >= 0) {
-    Serial.print("result: ");
+    Serial.print(F("result: "));
     Serial.println(result);
   }
 
   if (g_speech_recognizer.GetEvent() != emakefun::SpeechRecognizer::kEventNone) {
-    Serial.print("event: ");
+    Serial.print(F("event: "));
     Serial.println(EventToString(g_speech_recognizer.GetEvent()));
   }
 }

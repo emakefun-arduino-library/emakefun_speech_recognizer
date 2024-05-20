@@ -112,12 +112,12 @@ Public 类型</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a7e76b1539d74f0578c9c1cd58237c9fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a7e76b1539d74f0578c9c1cd58237c9fe">SpeechRecognizer</a> (const uint8_t device_i2c_address=<a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a>)</td></tr>
-<tr class="memdesc:a7e76b1539d74f0578c9c1cd58237c9fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
-<tr class="separator:a7e76b1539d74f0578c9c1cd58237c9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95bfa6b2b55e1771a1d50098e5a8b3fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a95bfa6b2b55e1771a1d50098e5a8b3fa">Initialize</a> (TwoWire *const wire=&amp;Wire)</td></tr>
-<tr class="memdesc:a95bfa6b2b55e1771a1d50098e5a8b3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化函数  <br /></td></tr>
-<tr class="separator:a95bfa6b2b55e1771a1d50098e5a8b3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad858561cb112c7e03566b1e76330f58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#aad858561cb112c7e03566b1e76330f58">SpeechRecognizer</a> (const uint8_t i2c_address=<a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a>)</td></tr>
+<tr class="memdesc:aad858561cb112c7e03566b1e76330f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
+<tr class="separator:aad858561cb112c7e03566b1e76330f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a3a234ad04f4bda6fcfb8e8f5cd5585"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a4a3a234ad04f4bda6fcfb8e8f5cd5585">Initialize</a> (TwoWire *const wire=&amp;Wire)</td></tr>
+<tr class="memdesc:a4a3a234ad04f4bda6fcfb8e8f5cd5585"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化函数  <br /></td></tr>
+<tr class="separator:a4a3a234ad04f4bda6fcfb8e8f5cd5585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade26e52c0ace43fda17f05d7b8440361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ade26e52c0ace43fda17f05d7b8440361">SetRecognitionMode</a> (const <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887">RecognitionMode</a> recognition_mode)</td></tr>
 <tr class="memdesc:ade26e52c0ace43fda17f05d7b8440361"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置识别模式  <br /></td></tr>
 <tr class="separator:ade26e52c0ace43fda17f05d7b8440361"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,8 +209,8 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 </div>
 </div>
 <h2 class="groupheader">构造及析构函数说明</h2>
-<a id="a7e76b1539d74f0578c9c1cd58237c9fe" name="a7e76b1539d74f0578c9c1cd58237c9fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e76b1539d74f0578c9c1cd58237c9fe">&#9670;&#160;</a></span>SpeechRecognizer()</h2>
+<a id="aad858561cb112c7e03566b1e76330f58" name="aad858561cb112c7e03566b1e76330f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad858561cb112c7e03566b1e76330f58">&#9670;&#160;</a></span>SpeechRecognizer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +219,7 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
           <td class="memname">emakefun::SpeechRecognizer::SpeechRecognizer </td>
           <td>(</td>
           <td class="paramtype">const uint8_t&#160;</td>
-          <td class="paramname"><em>device_i2c_address</em> = <code><a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a></code></td><td>)</td>
+          <td class="paramname"><em>i2c_address</em> = <code><a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -228,7 +228,7 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 <p>构造函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device_i2c_address</td><td>语音识别模块I2C地址，默认为0x30 </td></tr>
+    <tr><td class="paramname">i2c_address</td><td>语音识别模块I2C地址，默认为0x30 </td></tr>
   </table>
   </dd>
 </dl>
@@ -297,14 +297,14 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 
 </div>
 </div>
-<a id="a95bfa6b2b55e1771a1d50098e5a8b3fa" name="a95bfa6b2b55e1771a1d50098e5a8b3fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95bfa6b2b55e1771a1d50098e5a8b3fa">&#9670;&#160;</a></span>Initialize()</h2>
+<a id="a4a3a234ad04f4bda6fcfb8e8f5cd5585" name="a4a3a234ad04f4bda6fcfb8e8f5cd5585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a3a234ad04f4bda6fcfb8e8f5cd5585">&#9670;&#160;</a></span>Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool emakefun::SpeechRecognizer::Initialize </td>
+          <td class="memname">int32_t emakefun::SpeechRecognizer::Initialize </td>
           <td>(</td>
           <td class="paramtype">TwoWire *const&#160;</td>
           <td class="paramname"><em>wire</em> = <code>&amp;Wire</code></td><td>)</td>

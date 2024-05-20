@@ -1,9 +1,30 @@
 # Syntax Coloring Map For ExampleLibrary
 
-# Data Types (KEYWORD1)
+# Datatypes (KEYWORD1)
+SpeechRecognizer	KEYWORD1
+RecognitionMode	KEYWORD1
+Event	KEYWORD1
 
 # Methods and Functions (KEYWORD2)
+Initialize	KEYWORD2
+SetRecognitionMode	KEYWORD2
+SetTimeout	KEYWORD2
+AddKeyword	KEYWORD2
+Recognize	KEYWORD2
+GetEvent	KEYWORD2
 
-# Instances (KEYWORD3)
+# Instances (KEYWORD2)
 
 # Constants (LITERAL1)
+kRecognitionAuto	LITERAL1
+kKeywordOrButtonTrigger	LITERAL1
+kKeywordTrigger	LITERAL1
+kKeywordOrButtonTrigger	LITERAL1
+
+kEventNone	LITERAL1
+kEventStartWaitingForTrigger	LITERAL1
+kEventButtonTriggered	LITERAL1
+kEventKeywordTriggered	LITERAL1
+kEventStartRecognizing	LITERAL1
+kEventSpeechRecognized	LITERAL1
+kEventSpeechRecognitionTimedOut	LITERAL1
