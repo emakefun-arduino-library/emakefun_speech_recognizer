@@ -12,9 +12,9 @@
 
 （待补充）
 
-## 主类SpeechRecognizer介绍
+## 主类和接口说明
 
-- 主类SpeechRecognizer介绍： [点击此处链接查看](https://emakefun-arduino-library.github.io/emakefun_speech_recognizer/classemakefun_1_1_speech_recognizer.html)
+- 主类和接口说明： [点击此处链接查看](https://emakefun-arduino-library.github.io/emakefun_speech_recognizer/classemakefun_1_1_speech_recognizer.html)
 
 ## 示例程序
 
