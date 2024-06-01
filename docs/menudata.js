@@ -28,7 +28,14 @@ var menudata={children:[
 {text:"类列表",url:"annotated.html"},
 {text:"类索引",url:"classes.html"},
 {text:"类成员",url:"functions.html",children:[
-{text:"全部",url:"functions.html"},
+{text:"全部",url:"functions.html",children:[
+{text:"a",url:"functions.html#index_a"},
+{text:"e",url:"functions.html#index_e"},
+{text:"g",url:"functions.html#index_g"},
+{text:"i",url:"functions.html#index_i"},
+{text:"k",url:"functions.html#index_k"},
+{text:"r",url:"functions.html#index_r"},
+{text:"s",url:"functions.html#index_s"}]},
 {text:"函数",url:"functions_func.html"},
 {text:"变量",url:"functions_vars.html"},
 {text:"枚举",url:"functions_enum.html"},

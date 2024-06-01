@@ -7,9 +7,19 @@
 
 #include "speech_recognizer.h"
 
-emakefun::SpeechRecognizer g_speech_recognizer(emakefun::SpeechRecognizer::kDefaultI2cAddress);
+#define INFINITE_LOOP_ON_FAILURE InfiniteLoopOnFailure(__FUNCTION__, __LINE__)
 
-String EventToString(emakefun::SpeechRecognizer::Event event) {
+namespace {
+emakefun::SpeechRecognizer g_speech_recognizer;
+
+void InfiniteLoopOnFailure(const char* function, const uint32_t line_number) {
+  Serial.println(String(F("entering an infinite loop due to failure in ")) + function + F(", at line number: ") + line_number);
+  while (true) {
+    yield();
+  }
+}
+
+String EventToString(const emakefun::SpeechRecognizer::Event event) {
   switch (event) {
     case emakefun::SpeechRecognizer::kEventStartWaitingForTrigger:
       return F("kEventStartWaitingForTrigger");
@@ -27,18 +37,18 @@ String EventToString(emakefun::SpeechRecognizer::Event event) {
       return F("");
   }
 }
+}  // namespace
 
 void setup() {
   Serial.begin(115200);
   Serial.println("setup");
   Wire.begin();
-  const auto ret = g_speech_recognizer.Initialize(&Wire);
-  if (0 == ret) {
+  const auto ret = g_speech_recognizer.Initialize();
+  if (emakefun::SpeechRecognizer::kOK == ret) {
     Serial.println(F("speech recognizer initialization was successful"));
   } else {
     Serial.println(String(F("speech recognizer initialization failed: ")) + ret);
-    while (true)
-      ;
+    INFINITE_LOOP_ON_FAILURE;
   }
   g_speech_recognizer.SetRecognitionMode(emakefun::SpeechRecognizer::kButtonTrigger);
   g_speech_recognizer.SetTimeout(10000);
@@ -46,7 +56,7 @@ void setup() {
   g_speech_recognizer.AddKeyword(1, F("bei jing"));
   g_speech_recognizer.AddKeyword(2, F("shang hai"));
   g_speech_recognizer.AddKeyword(3, F("cheng du"));
-  Serial.println(F("setup was successful"));
+  Serial.println(F("setup successful"));
 }
 
 void loop() {

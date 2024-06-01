@@ -81,121 +81,128 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &quot;speech_recognizer.h&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a> g_speech_recognizer(<a id="a1" name="a1"></a><a class="code hl_variable" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">emakefun::SpeechRecognizer::kDefaultI2cAddress</a>);</div>
+<div class="line"><span class="preprocessor">#define INFINITE_LOOP_ON_FAILURE InfiniteLoopOnFailure(__FUNCTION__, __LINE__)</span></div>
 <div class="line"> </div>
-<div class="line">String EventToString(<a class="code hl_enumeration" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715">emakefun::SpeechRecognizer::Event</a> event) {</div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"> </div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a> g_speech_recognizer;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> InfiniteLoopOnFailure(<span class="keyword">const</span> <span class="keywordtype">char</span>* function, <span class="keyword">const</span> uint32_t line_number) {</div>
+<div class="line">  Serial.println(String(F(<span class="stringliteral">&quot;entering an infinite loop due to failure in &quot;</span>)) + function + F(<span class="stringliteral">&quot;, at line number: &quot;</span>) + line_number);</div>
+<div class="line">  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">    yield();</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">String EventToString(<span class="keyword">const</span> <a class="code hl_enumeration" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715">emakefun::SpeechRecognizer::Event</a> event) {</div>
 <div class="line">  <span class="keywordflow">switch</span> (event) {</div>
-<div class="line">    <span class="keywordflow">case</span> <a id="a2" name="a2"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8">emakefun::SpeechRecognizer::kEventStartWaitingForTrigger</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a id="a1" name="a1"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8">emakefun::SpeechRecognizer::kEventStartWaitingForTrigger</a>:</div>
 <div class="line">      <span class="keywordflow">return</span> F(<span class="stringliteral">&quot;kEventStartWaitingForTrigger&quot;</span>);</div>
-<div class="line">    <span class="keywordflow">case</span> <a id="a3" name="a3"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a3989d46bf4b7f67993a425f6bbaf8a2e">emakefun::SpeechRecognizer::kEventStartRecognizing</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a id="a2" name="a2"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a3989d46bf4b7f67993a425f6bbaf8a2e">emakefun::SpeechRecognizer::kEventStartRecognizing</a>:</div>
 <div class="line">      <span class="keywordflow">return</span> F(<span class="stringliteral">&quot;kEventStartRecognizing&quot;</span>);</div>
-<div class="line">    <span class="keywordflow">case</span> <a id="a4" name="a4"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a77948109cffdde9f07c9c230d6a65a11">emakefun::SpeechRecognizer::kEventSpeechRecognized</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a id="a3" name="a3"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a77948109cffdde9f07c9c230d6a65a11">emakefun::SpeechRecognizer::kEventSpeechRecognized</a>:</div>
 <div class="line">      <span class="keywordflow">return</span> F(<span class="stringliteral">&quot;kEventSpeechRecognized&quot;</span>);</div>
-<div class="line">    <span class="keywordflow">case</span> <a id="a5" name="a5"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a8c388af970dcf5fd4bdbc512d432d865">emakefun::SpeechRecognizer::kEventSpeechRecognitionTimedOut</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a id="a4" name="a4"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a8c388af970dcf5fd4bdbc512d432d865">emakefun::SpeechRecognizer::kEventSpeechRecognitionTimedOut</a>:</div>
 <div class="line">      <span class="keywordflow">return</span> F(<span class="stringliteral">&quot;kEventSpeechRecognitionTimedOut&quot;</span>);</div>
-<div class="line">    <span class="keywordflow">case</span> <a id="a6" name="a6"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715adf2b50579638b452cba87089f94b6a08">emakefun::SpeechRecognizer::kEventButtonTriggered</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a id="a5" name="a5"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715adf2b50579638b452cba87089f94b6a08">emakefun::SpeechRecognizer::kEventButtonTriggered</a>:</div>
 <div class="line">      <span class="keywordflow">return</span> F(<span class="stringliteral">&quot;kEventButtonTriggered&quot;</span>);</div>
-<div class="line">    <span class="keywordflow">case</span> <a id="a7" name="a7"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715afca0c5f6be52209943cdff523b1b3257">emakefun::SpeechRecognizer::kEventKeywordTriggered</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a id="a6" name="a6"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715afca0c5f6be52209943cdff523b1b3257">emakefun::SpeechRecognizer::kEventKeywordTriggered</a>:</div>
 <div class="line">      <span class="keywordflow">return</span> F(<span class="stringliteral">&quot;kEventKeywordTriggered&quot;</span>);</div>
 <div class="line">    <span class="keywordflow">default</span>:</div>
 <div class="line">      <span class="keywordflow">return</span> F(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
+<div class="line">}  <span class="comment">// namespace</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
 <div class="line">  Serial.begin(115200);</div>
 <div class="line">  Serial.println(F(<span class="stringliteral">&quot;setup&quot;</span>));</div>
 <div class="line">  Wire.begin();</div>
-<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> ret = g_speech_recognizer.<a id="a8" name="a8"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a4a3a234ad04f4bda6fcfb8e8f5cd5585">Initialize</a>(&amp;Wire);</div>
-<div class="line">  <span class="keywordflow">if</span> (0 == ret) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> ret = g_speech_recognizer.Initialize();</div>
+<div class="line">  <span class="keywordflow">if</span> (<a id="a7" name="a7"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a3fd0027032b4ca4c9a72ce431c7a6518">emakefun::SpeechRecognizer::kOK</a> == ret) {</div>
 <div class="line">    Serial.println(F(<span class="stringliteral">&quot;speech recognizer initialization was successful&quot;</span>));</div>
 <div class="line">  } <span class="keywordflow">else</span> {</div>
 <div class="line">    Serial.println(String(F(<span class="stringliteral">&quot;speech recognizer initialization failed: &quot;</span>)) + ret);</div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
-<div class="line">      ;</div>
+<div class="line">    INFINITE_LOOP_ON_FAILURE;</div>
 <div class="line">  }</div>
-<div class="line">  g_speech_recognizer.<a id="a9" name="a9"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#ade26e52c0ace43fda17f05d7b8440361">SetRecognitionMode</a>(<a id="a10" name="a10"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">emakefun::SpeechRecognizer::kRecognitionAuto</a>);</div>
-<div class="line">  g_speech_recognizer.<a id="a11" name="a11"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(0, F(<span class="stringliteral">&quot;xiao yi xiao yi&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(1, F(<span class="stringliteral">&quot;bei jing&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(2, F(<span class="stringliteral">&quot;chong qin&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(3, F(<span class="stringliteral">&quot;cheng du&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(4, F(<span class="stringliteral">&quot;shang hai&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(5, F(<span class="stringliteral">&quot;tian jin&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(6, F(<span class="stringliteral">&quot;wu han&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(7, F(<span class="stringliteral">&quot;nan jing&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(8, F(<span class="stringliteral">&quot;lan zhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(9, F(<span class="stringliteral">&quot;xian yang&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(10, F(<span class="stringliteral">&quot;cheng de&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(11, F(<span class="stringliteral">&quot;hang zhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(12, F(<span class="stringliteral">&quot;shen zhen&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(13, F(<span class="stringliteral">&quot;su zhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(14, F(<span class="stringliteral">&quot;taizhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(15, F(<span class="stringliteral">&quot;dalian&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(16, F(<span class="stringliteral">&quot;wu xi&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(17, F(<span class="stringliteral">&quot;he fei&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(18, F(<span class="stringliteral">&quot;chang sha&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(19, F(<span class="stringliteral">&quot;zheng zhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(20, F(<span class="stringliteral">&quot;qin huang dao&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(21, F(<span class="stringliteral">&quot;huaian&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(22, F(<span class="stringliteral">&quot;yan tai&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(23, F(<span class="stringliteral">&quot;zhu hai&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(24, F(<span class="stringliteral">&quot;sha men&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(25, F(<span class="stringliteral">&quot;fuzhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(26, F(<span class="stringliteral">&quot;nanning&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(27, F(<span class="stringliteral">&quot;lan zhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(28, F(<span class="stringliteral">&quot;gui lin&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(29, F(<span class="stringliteral">&quot;kun ming&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(30, F(<span class="stringliteral">&quot;xiang gang&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(31, F(<span class="stringliteral">&quot;ao men&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(32, F(<span class="stringliteral">&quot;tai bei&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(33, F(<span class="stringliteral">&quot;xin jiang&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(34, F(<span class="stringliteral">&quot;nei mong gu&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(35, F(<span class="stringliteral">&quot;liao ning&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(36, F(<span class="stringliteral">&quot;chao zhou&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(37, F(<span class="stringliteral">&quot;sui ning&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(38, F(<span class="stringliteral">&quot;qiqihaer&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(39, F(<span class="stringliteral">&quot;huang gang&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(40, F(<span class="stringliteral">&quot;wu lu mu qi&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(41, F(<span class="stringliteral">&quot;yan shan&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(42, F(<span class="stringliteral">&quot;xin xiang&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(43, F(<span class="stringliteral">&quot;da tuan&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(44, F(<span class="stringliteral">&quot;en shi&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(45, F(<span class="stringliteral">&quot;jiu jiang&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(46, F(<span class="stringliteral">&quot;fu yang&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(47, F(<span class="stringliteral">&quot;ji nan&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(48, F(<span class="stringliteral">&quot;jin hua&quot;</span>));</div>
-<div class="line">  g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">AddKeyword</a>(49, F(<span class="stringliteral">&quot;xi an&quot;</span>));</div>
-<div class="line">  Serial.println(F(<span class="stringliteral">&quot;setup was successful&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.SetRecognitionMode(<a id="a8" name="a8"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">emakefun::SpeechRecognizer::kRecognitionAuto</a>);</div>
+<div class="line">  g_speech_recognizer.AddKeyword(0, F(<span class="stringliteral">&quot;xiao yi xiao yi&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(1, F(<span class="stringliteral">&quot;bei jing&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(2, F(<span class="stringliteral">&quot;chong qin&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(3, F(<span class="stringliteral">&quot;cheng du&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(4, F(<span class="stringliteral">&quot;shang hai&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(5, F(<span class="stringliteral">&quot;tian jin&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(6, F(<span class="stringliteral">&quot;wu han&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(7, F(<span class="stringliteral">&quot;nan jing&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(8, F(<span class="stringliteral">&quot;lan zhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(9, F(<span class="stringliteral">&quot;xian yang&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(10, F(<span class="stringliteral">&quot;cheng de&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(11, F(<span class="stringliteral">&quot;hang zhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(12, F(<span class="stringliteral">&quot;shen zhen&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(13, F(<span class="stringliteral">&quot;su zhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(14, F(<span class="stringliteral">&quot;taizhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(15, F(<span class="stringliteral">&quot;dalian&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(16, F(<span class="stringliteral">&quot;wu xi&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(17, F(<span class="stringliteral">&quot;he fei&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(18, F(<span class="stringliteral">&quot;chang sha&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(19, F(<span class="stringliteral">&quot;zheng zhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(20, F(<span class="stringliteral">&quot;qin huang dao&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(21, F(<span class="stringliteral">&quot;huaian&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(22, F(<span class="stringliteral">&quot;yan tai&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(23, F(<span class="stringliteral">&quot;zhu hai&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(24, F(<span class="stringliteral">&quot;sha men&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(25, F(<span class="stringliteral">&quot;fuzhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(26, F(<span class="stringliteral">&quot;nanning&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(27, F(<span class="stringliteral">&quot;lan zhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(28, F(<span class="stringliteral">&quot;gui lin&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(29, F(<span class="stringliteral">&quot;kun ming&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(30, F(<span class="stringliteral">&quot;xiang gang&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(31, F(<span class="stringliteral">&quot;ao men&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(32, F(<span class="stringliteral">&quot;tai bei&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(33, F(<span class="stringliteral">&quot;xin jiang&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(34, F(<span class="stringliteral">&quot;nei mong gu&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(35, F(<span class="stringliteral">&quot;liao ning&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(36, F(<span class="stringliteral">&quot;chao zhou&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(37, F(<span class="stringliteral">&quot;sui ning&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(38, F(<span class="stringliteral">&quot;qiqihaer&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(39, F(<span class="stringliteral">&quot;huang gang&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(40, F(<span class="stringliteral">&quot;wu lu mu qi&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(41, F(<span class="stringliteral">&quot;yan shan&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(42, F(<span class="stringliteral">&quot;xin xiang&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(43, F(<span class="stringliteral">&quot;da tuan&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(44, F(<span class="stringliteral">&quot;en shi&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(45, F(<span class="stringliteral">&quot;jiu jiang&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(46, F(<span class="stringliteral">&quot;fu yang&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(47, F(<span class="stringliteral">&quot;ji nan&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(48, F(<span class="stringliteral">&quot;jin hua&quot;</span>));</div>
+<div class="line">  g_speech_recognizer.AddKeyword(49, F(<span class="stringliteral">&quot;xi an&quot;</span>));</div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;setup successful&quot;</span>));</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> result = g_speech_recognizer.<a id="a12" name="a12"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a728e6abcd832e5b779fb1a801c3b3e08">Recognize</a>();</div>
+<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> result = g_speech_recognizer.Recognize();</div>
 <div class="line">  <span class="keywordflow">if</span> (result &gt;= 0) {</div>
 <div class="line">    Serial.print(F(<span class="stringliteral">&quot;result: &quot;</span>));</div>
 <div class="line">    Serial.println(result);</div>
 <div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">  <span class="keywordflow">if</span> (g_speech_recognizer.<a id="a13" name="a13"></a><a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a2cb06e53c0992b33a94f17d0afee6957">GetEvent</a>() != <a id="a14" name="a14"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a010859cc7dd3f6bc5cd861cc3f624146">emakefun::SpeechRecognizer::kEventNone</a>) {</div>
+<div class="line">  <span class="keywordflow">if</span> (g_speech_recognizer.GetEvent() != <a id="a9" name="a9"></a><a class="code hl_enumvalue" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a010859cc7dd3f6bc5cd861cc3f624146">emakefun::SpeechRecognizer::kEventNone</a>) {</div>
 <div class="line">    Serial.print(F(<span class="stringliteral">&quot;event: &quot;</span>));</div>
-<div class="line">    Serial.println(EventToString(g_speech_recognizer.<a class="code hl_function" href="classemakefun_1_1_speech_recognizer.html#a2cb06e53c0992b33a94f17d0afee6957">GetEvent</a>()));</div>
+<div class="line">    Serial.println(EventToString(g_speech_recognizer.GetEvent()));</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html">emakefun::SpeechRecognizer</a></div><div class="ttdoc">语音识别模块类</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:12</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a29f8615dc251f4092b8a523a5c79d9cc"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">emakefun::SpeechRecognizer::kDefaultI2cAddress</a></div><div class="ttdeci">static constexpr uint8_t kDefaultI2cAddress</div><div class="ttdoc">语音识别模块默认I2C地址</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:17</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a2cb06e53c0992b33a94f17d0afee6957"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a2cb06e53c0992b33a94f17d0afee6957">emakefun::SpeechRecognizer::GetEvent</a></div><div class="ttdeci">Event GetEvent()</div><div class="ttdoc">获取当前事件</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:116</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a4a3a234ad04f4bda6fcfb8e8f5cd5585"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a4a3a234ad04f4bda6fcfb8e8f5cd5585">emakefun::SpeechRecognizer::Initialize</a></div><div class="ttdeci">int32_t Initialize(TwoWire *const wire=&amp;Wire)</div><div class="ttdoc">初始化函数</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:44</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">emakefun::SpeechRecognizer::kRecognitionAuto</a></div><div class="ttdeci">@ kRecognitionAuto</div><div class="ttdoc">自动识别模式</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:28</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a728e6abcd832e5b779fb1a801c3b3e08"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a728e6abcd832e5b779fb1a801c3b3e08">emakefun::SpeechRecognizer::Recognize</a></div><div class="ttdeci">int16_t Recognize()</div><div class="ttdoc">进行语音识别</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:99</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_aa88e668aa2404b870eb388af199b961f"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#aa88e668aa2404b870eb388af199b961f">emakefun::SpeechRecognizer::AddKeyword</a></div><div class="ttdeci">void AddKeyword(const uint8_t index, const String &amp;keyword)</div><div class="ttdoc">添加语音识别关键词</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:76</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_ade26e52c0ace43fda17f05d7b8440361"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#ade26e52c0ace43fda17f05d7b8440361">emakefun::SpeechRecognizer::SetRecognitionMode</a></div><div class="ttdeci">void SetRecognitionMode(const RecognitionMode recognition_mode)</div><div class="ttdoc">设置识别模式</div><div class="ttdef"><b>Definition</b> speech_recognizer.cpp:60</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715">emakefun::SpeechRecognizer::Event</a></div><div class="ttdeci">Event</div><div class="ttdoc">事件类型</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:38</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a010859cc7dd3f6bc5cd861cc3f624146"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a010859cc7dd3f6bc5cd861cc3f624146">emakefun::SpeechRecognizer::kEventNone</a></div><div class="ttdeci">@ kEventNone</div><div class="ttdoc">无事件</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:39</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8">emakefun::SpeechRecognizer::kEventStartWaitingForTrigger</a></div><div class="ttdeci">@ kEventStartWaitingForTrigger</div><div class="ttdoc">开始等待触发</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:40</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a3989d46bf4b7f67993a425f6bbaf8a2e"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a3989d46bf4b7f67993a425f6bbaf8a2e">emakefun::SpeechRecognizer::kEventStartRecognizing</a></div><div class="ttdeci">@ kEventStartRecognizing</div><div class="ttdoc">开始识别</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:43</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a77948109cffdde9f07c9c230d6a65a11"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a77948109cffdde9f07c9c230d6a65a11">emakefun::SpeechRecognizer::kEventSpeechRecognized</a></div><div class="ttdeci">@ kEventSpeechRecognized</div><div class="ttdoc">识别成功</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:44</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a8c388af970dcf5fd4bdbc512d432d865"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a8c388af970dcf5fd4bdbc512d432d865">emakefun::SpeechRecognizer::kEventSpeechRecognitionTimedOut</a></div><div class="ttdeci">@ kEventSpeechRecognitionTimedOut</div><div class="ttdoc">识别超时</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:45</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715adf2b50579638b452cba87089f94b6a08"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715adf2b50579638b452cba87089f94b6a08">emakefun::SpeechRecognizer::kEventButtonTriggered</a></div><div class="ttdeci">@ kEventButtonTriggered</div><div class="ttdoc">被按键触发</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:41</div></div>
-<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715afca0c5f6be52209943cdff523b1b3257"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715afca0c5f6be52209943cdff523b1b3257">emakefun::SpeechRecognizer::kEventKeywordTriggered</a></div><div class="ttdeci">@ kEventKeywordTriggered</div><div class="ttdoc">被关键词触发</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:42</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">emakefun::SpeechRecognizer::kRecognitionAuto</a></div><div class="ttdeci">@ kRecognitionAuto</div><div class="ttdoc">自动识别模式</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:43</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_ad5d9f194b463b6755915568f399966a7a3fd0027032b4ca4c9a72ce431c7a6518"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a3fd0027032b4ca4c9a72ce431c7a6518">emakefun::SpeechRecognizer::kOK</a></div><div class="ttdeci">@ kOK</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:29</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715">emakefun::SpeechRecognizer::Event</a></div><div class="ttdeci">Event</div><div class="ttdoc">事件类型</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:53</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a010859cc7dd3f6bc5cd861cc3f624146"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a010859cc7dd3f6bc5cd861cc3f624146">emakefun::SpeechRecognizer::kEventNone</a></div><div class="ttdeci">@ kEventNone</div><div class="ttdoc">无事件</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:54</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8">emakefun::SpeechRecognizer::kEventStartWaitingForTrigger</a></div><div class="ttdeci">@ kEventStartWaitingForTrigger</div><div class="ttdoc">开始等待触发</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:55</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a3989d46bf4b7f67993a425f6bbaf8a2e"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a3989d46bf4b7f67993a425f6bbaf8a2e">emakefun::SpeechRecognizer::kEventStartRecognizing</a></div><div class="ttdeci">@ kEventStartRecognizing</div><div class="ttdoc">开始识别</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:58</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a77948109cffdde9f07c9c230d6a65a11"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a77948109cffdde9f07c9c230d6a65a11">emakefun::SpeechRecognizer::kEventSpeechRecognized</a></div><div class="ttdeci">@ kEventSpeechRecognized</div><div class="ttdoc">识别成功</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:59</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715a8c388af970dcf5fd4bdbc512d432d865"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a8c388af970dcf5fd4bdbc512d432d865">emakefun::SpeechRecognizer::kEventSpeechRecognitionTimedOut</a></div><div class="ttdeci">@ kEventSpeechRecognitionTimedOut</div><div class="ttdoc">识别超时</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:60</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715adf2b50579638b452cba87089f94b6a08"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715adf2b50579638b452cba87089f94b6a08">emakefun::SpeechRecognizer::kEventButtonTriggered</a></div><div class="ttdeci">@ kEventButtonTriggered</div><div class="ttdoc">被按键触发</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:56</div></div>
+<div class="ttc" id="aclassemakefun_1_1_speech_recognizer_html_af2f981ed4e3e6dafc8a2d8d703455715afca0c5f6be52209943cdff523b1b3257"><div class="ttname"><a href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715afca0c5f6be52209943cdff523b1b3257">emakefun::SpeechRecognizer::kEventKeywordTriggered</a></div><div class="ttdeci">@ kEventKeywordTriggered</div><div class="ttdoc">被关键词触发</div><div class="ttdef"><b>Definition</b> speech_recognizer.h:57</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

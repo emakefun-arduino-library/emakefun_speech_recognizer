@@ -22,6 +22,21 @@ class SpeechRecognizer {
   static constexpr uint8_t kMaxKeywordDataBytes = 50;
 
   /**
+   * @enum ErrorCode
+   * @brief 错误码
+   */
+  enum ErrorCode : uint32_t {
+    kOK = 0,                                  /**< 0：成功 */
+    kI2cDataTooLongToFitInTransmitBuffer = 1, /**< 1：I2C数据太长，无法装入传输缓冲区 */
+    kI2cReceivedNackOnTransmitOfAddress = 2,  /**< 2：在I2C发送地址时收到NACK */
+    kI2cReceivedNackOnTransmitOfData = 3,     /**< 3：在I2C发送数据时收到NACK */
+    kI2cOtherError = 4,                       /**< 4：其他I2C错误 */
+    kI2cTimeout = 5,                          /**< 5：I2C通讯超时 */
+    kInvalidParameter = 6,                    /**< 6：参数错误 */
+    kUnknownError = 7,                        /**< 7: 未知错误*/
+  };
+
+  /**
    * @brief 识别模式
    */
   enum RecognitionMode : uint8_t {
@@ -49,7 +64,7 @@ class SpeechRecognizer {
    * @brief 构造函数
    * @param i2c_address 语音识别模块I2C地址，默认为0x30
    */
-  SpeechRecognizer(const uint8_t i2c_address = kDefaultI2cAddress);
+  explicit SpeechRecognizer(TwoWire& wire = Wire, const uint8_t i2c_address = kDefaultI2cAddress);
 
   /**
    * @brief 初始化函数
@@ -58,7 +73,7 @@ class SpeechRecognizer {
    * @retval true 成功
    * @retval false 失败，如I2C无法与语音识别模块通讯
    */
-  int32_t Initialize(TwoWire* const wire = &Wire);
+  ErrorCode Initialize();
 
   /**
    * @brief 设置识别模式
@@ -98,10 +113,11 @@ class SpeechRecognizer {
   Event GetEvent();
 
  private:
-  int32_t WaitUntilIdle();
-  TwoWire* wire_ = nullptr;
-  const uint8_t i2c_address_ = 0;
   SpeechRecognizer(const SpeechRecognizer&) = delete;
   SpeechRecognizer& operator=(const SpeechRecognizer&) = delete;
+  ErrorCode WaitUntilIdle();
+
+  TwoWire& wire_ = Wire;
+  const uint8_t i2c_address_ = kDefaultI2cAddress;
 };
 }  // namespace emakefun

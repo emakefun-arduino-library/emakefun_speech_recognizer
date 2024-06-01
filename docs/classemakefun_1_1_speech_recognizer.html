@@ -89,6 +89,20 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public 类型</h2></td></tr>
+<tr class="memitem:ad5d9f194b463b6755915568f399966a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7">ErrorCode</a> : uint32_t { <br />
+&#160;&#160;<a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a3fd0027032b4ca4c9a72ce431c7a6518">kOK</a> = 0
+, <a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a590117c6cd7aa21c7da9554d3f5b9c95">kI2cDataTooLongToFitInTransmitBuffer</a> = 1
+, <a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a1873a6197df4af62500682e51aa38fef">kI2cReceivedNackOnTransmitOfAddress</a> = 2
+, <a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7aeb6a3610e324e13efa150f51fd0103fe">kI2cReceivedNackOnTransmitOfData</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a31914cd2e9958fa8722755717a286561">kI2cOtherError</a> = 4
+, <a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7af694f6241c409d2c6fe163131fdfc833">kI2cTimeout</a> = 5
+, <a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a3e905db40b4d10d062c9b994f4dd8d07">kInvalidParameter</a> = 6
+, <a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7acbaee8361657f1b6db69aa5d99b43355">kUnknownError</a> = 7
+<br />
+ }</td></tr>
+<tr class="memdesc:ad5d9f194b463b6755915568f399966a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">错误码  <a href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7">更多...</a><br /></td></tr>
+<tr class="separator:ad5d9f194b463b6755915568f399966a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b0e92735e29f754fb62982721f1c887"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887">RecognitionMode</a> : uint8_t { <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840">kRecognitionAuto</a>
 , <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a23d9b014ee92b349babd8277c34e1344">kButtonTrigger</a>
 , <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2">kKeywordTrigger</a>
@@ -112,12 +126,12 @@ Public 类型</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:aad858561cb112c7e03566b1e76330f58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#aad858561cb112c7e03566b1e76330f58">SpeechRecognizer</a> (const uint8_t i2c_address=<a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a>)</td></tr>
-<tr class="memdesc:aad858561cb112c7e03566b1e76330f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
-<tr class="separator:aad858561cb112c7e03566b1e76330f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a3a234ad04f4bda6fcfb8e8f5cd5585"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a4a3a234ad04f4bda6fcfb8e8f5cd5585">Initialize</a> (TwoWire *const wire=&amp;Wire)</td></tr>
-<tr class="memdesc:a4a3a234ad04f4bda6fcfb8e8f5cd5585"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化函数  <br /></td></tr>
-<tr class="separator:a4a3a234ad04f4bda6fcfb8e8f5cd5585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2480629fc3503131e458333731b7dfc9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a2480629fc3503131e458333731b7dfc9">SpeechRecognizer</a> (TwoWire &amp;wire=Wire, const uint8_t i2c_address=<a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a>)</td></tr>
+<tr class="memdesc:a2480629fc3503131e458333731b7dfc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
+<tr class="separator:a2480629fc3503131e458333731b7dfc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f37e9c2979f1b4ab5af5ed14ecd62d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7">ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#a75f37e9c2979f1b4ab5af5ed14ecd62d">Initialize</a> ()</td></tr>
+<tr class="memdesc:a75f37e9c2979f1b4ab5af5ed14ecd62d"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化函数  <br /></td></tr>
+<tr class="separator:a75f37e9c2979f1b4ab5af5ed14ecd62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade26e52c0ace43fda17f05d7b8440361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ade26e52c0ace43fda17f05d7b8440361">SetRecognitionMode</a> (const <a class="el" href="classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887">RecognitionMode</a> recognition_mode)</td></tr>
 <tr class="memdesc:ade26e52c0ace43fda17f05d7b8440361"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置识别模式  <br /></td></tr>
 <tr class="separator:ade26e52c0ace43fda17f05d7b8440361"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +164,40 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 <dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#_a0">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#_a0">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#_a0">keyword_trigger_mode.ino</a>, <a class="el" href="lots_of_keywords_8ino-example.html#_a0">lots_of_keywords.ino</a> , 以及 <a class="el" href="simple_example_8ino-example.html#_a0">simple_example.ino</a>.</dd>
 </dl>
 </div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="ad5d9f194b463b6755915568f399966a7" name="ad5d9f194b463b6755915568f399966a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d9f194b463b6755915568f399966a7">&#9670;&#160;</a></span>ErrorCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7">emakefun::SpeechRecognizer::ErrorCode</a> : uint32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>错误码 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7a3fd0027032b4ca4c9a72ce431c7a6518" name="ad5d9f194b463b6755915568f399966a7a3fd0027032b4ca4c9a72ce431c7a6518"></a>kOK&#160;</td><td class="fielddoc"><p>0：成功 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7a590117c6cd7aa21c7da9554d3f5b9c95" name="ad5d9f194b463b6755915568f399966a7a590117c6cd7aa21c7da9554d3f5b9c95"></a>kI2cDataTooLongToFitInTransmitBuffer&#160;</td><td class="fielddoc"><p>1：I2C数据太长，无法装入传输缓冲区 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7a1873a6197df4af62500682e51aa38fef" name="ad5d9f194b463b6755915568f399966a7a1873a6197df4af62500682e51aa38fef"></a>kI2cReceivedNackOnTransmitOfAddress&#160;</td><td class="fielddoc"><p>2：在I2C发送地址时收到NACK </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7aeb6a3610e324e13efa150f51fd0103fe" name="ad5d9f194b463b6755915568f399966a7aeb6a3610e324e13efa150f51fd0103fe"></a>kI2cReceivedNackOnTransmitOfData&#160;</td><td class="fielddoc"><p>3：在I2C发送数据时收到NACK </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7a31914cd2e9958fa8722755717a286561" name="ad5d9f194b463b6755915568f399966a7a31914cd2e9958fa8722755717a286561"></a>kI2cOtherError&#160;</td><td class="fielddoc"><p>4：其他I2C错误 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7af694f6241c409d2c6fe163131fdfc833" name="ad5d9f194b463b6755915568f399966a7af694f6241c409d2c6fe163131fdfc833"></a>kI2cTimeout&#160;</td><td class="fielddoc"><p>5：I2C通讯超时 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7a3e905db40b4d10d062c9b994f4dd8d07" name="ad5d9f194b463b6755915568f399966a7a3e905db40b4d10d062c9b994f4dd8d07"></a>kInvalidParameter&#160;</td><td class="fielddoc"><p>6：参数错误 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad5d9f194b463b6755915568f399966a7acbaee8361657f1b6db69aa5d99b43355" name="ad5d9f194b463b6755915568f399966a7acbaee8361657f1b6db69aa5d99b43355"></a>kUnknownError&#160;</td><td class="fielddoc"><p>7: 未知错误 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="af2f981ed4e3e6dafc8a2d8d703455715" name="af2f981ed4e3e6dafc8a2d8d703455715"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2f981ed4e3e6dafc8a2d8d703455715">&#9670;&#160;</a></span>Event</h2>
 
@@ -209,20 +257,38 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 </div>
 </div>
 <h2 class="groupheader">构造及析构函数说明</h2>
-<a id="aad858561cb112c7e03566b1e76330f58" name="aad858561cb112c7e03566b1e76330f58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad858561cb112c7e03566b1e76330f58">&#9670;&#160;</a></span>SpeechRecognizer()</h2>
+<a id="a2480629fc3503131e458333731b7dfc9" name="a2480629fc3503131e458333731b7dfc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2480629fc3503131e458333731b7dfc9">&#9670;&#160;</a></span>SpeechRecognizer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">emakefun::SpeechRecognizer::SpeechRecognizer </td>
           <td>(</td>
-          <td class="paramtype">const uint8_t&#160;</td>
-          <td class="paramname"><em>i2c_address</em> = <code><a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a></code></td><td>)</td>
+          <td class="paramtype">TwoWire &amp;&#160;</td>
+          <td class="paramname"><em>wire</em> = <code>Wire</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>i2c_address</em> = <code><a class="el" href="classemakefun_1_1_speech_recognizer.html#a29f8615dc251f4092b8a523a5c79d9cc">kDefaultI2cAddress</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>构造函数 </p>
@@ -270,8 +336,6 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a12">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a12">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a12">keyword_trigger_mode.ino</a>, <a class="el" href="lots_of_keywords_8ino-example.html#a11">lots_of_keywords.ino</a> , 以及 <a class="el" href="simple_example_8ino-example.html#a3">simple_example.ino</a>.</dd>
-</dl>
 
 </div>
 </div>
@@ -292,22 +356,19 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
 
 <p>获取当前事件 </p>
 <dl class="section return"><dt>返回</dt><dd>事件类型，参考枚举: <a class="el" href="classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715">Event</a> </dd></dl>
-<dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a14">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a14">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a14">keyword_trigger_mode.ino</a> , 以及 <a class="el" href="lots_of_keywords_8ino-example.html#a13">lots_of_keywords.ino</a>.</dd>
-</dl>
 
 </div>
 </div>
-<a id="a4a3a234ad04f4bda6fcfb8e8f5cd5585" name="a4a3a234ad04f4bda6fcfb8e8f5cd5585"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a3a234ad04f4bda6fcfb8e8f5cd5585">&#9670;&#160;</a></span>Initialize()</h2>
+<a id="a75f37e9c2979f1b4ab5af5ed14ecd62d" name="a75f37e9c2979f1b4ab5af5ed14ecd62d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f37e9c2979f1b4ab5af5ed14ecd62d">&#9670;&#160;</a></span>Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t emakefun::SpeechRecognizer::Initialize </td>
+          <td class="memname"><a class="el" href="classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7">SpeechRecognizer::ErrorCode</a> emakefun::SpeechRecognizer::Initialize </td>
           <td>(</td>
-          <td class="paramtype">TwoWire *const&#160;</td>
-          <td class="paramname"><em>wire</em> = <code>&amp;Wire</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -327,8 +388,6 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
     <tr><td class="paramname">false</td><td>失败，如I2C无法与语音识别模块通讯 </td></tr>
   </table>
   </dd>
-</dl>
-<dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a8">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a8">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a8">keyword_trigger_mode.ino</a>, <a class="el" href="lots_of_keywords_8ino-example.html#a8">lots_of_keywords.ino</a> , 以及 <a class="el" href="simple_example_8ino-example.html#a2">simple_example.ino</a>.</dd>
 </dl>
 
 </div>
@@ -357,8 +416,6 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a13">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a13">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a13">keyword_trigger_mode.ino</a>, <a class="el" href="lots_of_keywords_8ino-example.html#a12">lots_of_keywords.ino</a> , 以及 <a class="el" href="simple_example_8ino-example.html#a4">simple_example.ino</a>.</dd>
-</dl>
 
 </div>
 </div>
@@ -385,8 +442,6 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a9">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a9">button_trigger_mode.ino</a>, <a class="el" href="keyword_trigger_mode_8ino-example.html#a9">keyword_trigger_mode.ino</a> , 以及 <a class="el" href="lots_of_keywords_8ino-example.html#a9">lots_of_keywords.ino</a>.</dd>
-</dl>
 
 </div>
 </div>
@@ -412,8 +467,6 @@ static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>k
     <tr><td class="paramdir">[in]</td><td class="paramname">timeout_ms</td><td>超时时间，单位毫秒 </td></tr>
   </table>
   </dd>
-</dl>
-<dl class="section examples"><dt>示例</dt><dd><a class="el" href="button_or_keyword_trigger_mode_8ino-example.html#a11">button_or_keyword_trigger_mode.ino</a>, <a class="el" href="button_trigger_mode_8ino-example.html#a11">button_trigger_mode.ino</a> , 以及 <a class="el" href="keyword_trigger_mode_8ino-example.html#a11">keyword_trigger_mode.ino</a>.</dd>
 </dl>
 
 </div>

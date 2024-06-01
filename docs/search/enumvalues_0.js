@@ -8,7 +8,15 @@ var searchData=
   ['keventspeechrecognized_5',['kEventSpeechRecognized',['../classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a77948109cffdde9f07c9c230d6a65a11',1,'emakefun::SpeechRecognizer']]],
   ['keventstartrecognizing_6',['kEventStartRecognizing',['../classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a3989d46bf4b7f67993a425f6bbaf8a2e',1,'emakefun::SpeechRecognizer']]],
   ['keventstartwaitingfortrigger_7',['kEventStartWaitingForTrigger',['../classemakefun_1_1_speech_recognizer.html#af2f981ed4e3e6dafc8a2d8d703455715a220fbe2ccb15e7646e62d85de35f69a8',1,'emakefun::SpeechRecognizer']]],
-  ['kkeywordorbuttontrigger_8',['kKeywordOrButtonTrigger',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210',1,'emakefun::SpeechRecognizer']]],
-  ['kkeywordtrigger_9',['kKeywordTrigger',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2',1,'emakefun::SpeechRecognizer']]],
-  ['krecognitionauto_10',['kRecognitionAuto',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840',1,'emakefun::SpeechRecognizer']]]
+  ['ki2cdatatoolongtofitintransmitbuffer_8',['kI2cDataTooLongToFitInTransmitBuffer',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a590117c6cd7aa21c7da9554d3f5b9c95',1,'emakefun::SpeechRecognizer']]],
+  ['ki2cothererror_9',['kI2cOtherError',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a31914cd2e9958fa8722755717a286561',1,'emakefun::SpeechRecognizer']]],
+  ['ki2creceivednackontransmitofaddress_10',['kI2cReceivedNackOnTransmitOfAddress',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a1873a6197df4af62500682e51aa38fef',1,'emakefun::SpeechRecognizer']]],
+  ['ki2creceivednackontransmitofdata_11',['kI2cReceivedNackOnTransmitOfData',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7aeb6a3610e324e13efa150f51fd0103fe',1,'emakefun::SpeechRecognizer']]],
+  ['ki2ctimeout_12',['kI2cTimeout',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7af694f6241c409d2c6fe163131fdfc833',1,'emakefun::SpeechRecognizer']]],
+  ['kinvalidparameter_13',['kInvalidParameter',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a3e905db40b4d10d062c9b994f4dd8d07',1,'emakefun::SpeechRecognizer']]],
+  ['kkeywordorbuttontrigger_14',['kKeywordOrButtonTrigger',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887af7b83146cb78ee3901ba19b24cfaa210',1,'emakefun::SpeechRecognizer']]],
+  ['kkeywordtrigger_15',['kKeywordTrigger',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a37e40885c9e3462d429bb9dc864172d2',1,'emakefun::SpeechRecognizer']]],
+  ['kok_16',['kOK',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7a3fd0027032b4ca4c9a72ce431c7a6518',1,'emakefun::SpeechRecognizer']]],
+  ['krecognitionauto_17',['kRecognitionAuto',['../classemakefun_1_1_speech_recognizer.html#a5b0e92735e29f754fb62982721f1c887a4f18bed02653cbbacf23ee8d8cd5a840',1,'emakefun::SpeechRecognizer']]],
+  ['kunknownerror_18',['kUnknownError',['../classemakefun_1_1_speech_recognizer.html#ad5d9f194b463b6755915568f399966a7acbaee8361657f1b6db69aa5d99b43355',1,'emakefun::SpeechRecognizer']]]
 ];
