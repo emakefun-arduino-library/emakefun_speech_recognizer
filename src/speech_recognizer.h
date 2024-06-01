@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EMAKEFUN_SPEECH_RECOGNIZER_H_
+#define EMAKEFUN_SPEECH_RECOGNIZER_H_
 
 #include <WString.h>
 #include <Wire.h>
@@ -121,3 +122,5 @@ class SpeechRecognizer {
   const uint8_t i2c_address_ = kDefaultI2cAddress;
 };
 }  // namespace emakefun
+
+#endif
